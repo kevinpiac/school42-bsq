@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_cases.c                                      :+:      :+:    :+:   */
+/*   grid_error_cases.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/06 21:36:27 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/06 22:00:50 by kpiacent         ###   ########.fr       */
+/*   Created: 2016/01/07 12:00:58 by kpiacent          #+#    #+#             */
+/*   Updated: 2016/01/07 14:16:24 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_valid_grid(grid, char *grid_params)
+#include "header.h"
+
+int		ft_grid_contains_wrong_char(char *grid, char *allowed_chars)
 {
-	if (ft_same_line_length(grid) && !ft_contains_wrong_char(grid, char *grid_params))
-		return (true);
-	ft_puterror("map error\n");
-	return (false);
+	int		i;
+
+	i = 0;
+	while (grid[i])
+	{
+		if (grid[i] == allowed_chars[0] ||
+			grid[i] == allowed_chars[1] ||
+			grid[i] == allowed_chars[2])
+			i++;
+		else
+			return (1);
+	}
+	return (0);
 }
