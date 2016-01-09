@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 08:47:21 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/07 14:18:46 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/08 13:52:30 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ char	*ft_file_to_array(char *file)
 	fd = open(file, O_RDONLY);
 	if (fd != -1)
 		read(fd, buf, file_len);
+	buf[file_len] = '\0';
 	return (buf);
 }
 
