@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/06 23:50:52 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/11 17:46:50 by nhuber           ###   ########.fr       */
+/*   Created: 2016/01/11 13:22:11 by nhuber            #+#    #+#             */
+/*   Updated: 2016/01/11 15:36:24 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	main(int ac, char **av)
+int	ft_strlen(char *str)
 {
-	int	len;
+	int i;
 
-	len = ft_is_all_line(av[1]);
-	printf("all G : %d\n", len);
-	return (0);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

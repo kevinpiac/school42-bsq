@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/06 23:50:52 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/11 17:46:50 by nhuber           ###   ########.fr       */
+/*   Created: 2016/01/11 13:25:40 by nhuber            #+#    #+#             */
+/*   Updated: 2016/01/11 13:26:20 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	main(int ac, char **av)
+char	*ft_strrev(char *str)
 {
+	int	i;
 	int	len;
+	char	tmp;
 
-	len = ft_is_all_line(av[1]);
-	printf("all G : %d\n", len);
-	return (0);
+	if (str)
+	{
+		i = 0;
+		len = ft_strlen(str);
+		while (i <= len / 2)
+		{
+			tmp = str[i];
+			str[i] = str[len - i];
+			str[len - i] = tmp;
+			i++;
+		}
+	}
+	return (str);
 }

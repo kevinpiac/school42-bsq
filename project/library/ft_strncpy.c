@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/06 23:50:52 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/11 17:46:50 by nhuber           ###   ########.fr       */
+/*   Created: 2016/01/11 14:13:30 by nhuber            #+#    #+#             */
+/*   Updated: 2016/01/11 14:17:17 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	main(int ac, char **av)
+char	*ft_strncpy(char *dst, char *src, int n)
 {
-	int	len;
+	int	i;
 
-	len = ft_is_all_line(av[1]);
-	printf("all G : %d\n", len);
-	return (0);
+	i = 0;
+	while (src != '\0' && (i < n))
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }
