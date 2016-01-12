@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 13:11:08 by nhuber            #+#    #+#             */
-/*   Updated: 2016/01/11 17:26:44 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/01/12 15:36:02 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,18 @@ int	ft_number_of_line(char *param_line)
 	len = ft_atoi(tab);
 	free(tab);
 	return (len);
+}
+
+char	*ft_grid_get_params(char *grid)
+{
+	char	*param_line;
+	int	i;
+
+	i = 0;
+	while (grid[i] != '\n')
+		i++;
+	if (!(param_line = (char *)malloc(sizeof(char) * i + 1)))
+		return (NULL);
+	param_line = ft_strncpy(param_line, grid, i);
+	return (param_line);
 }
