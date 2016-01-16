@@ -6,22 +6,28 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 12:00:58 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/12 14:46:40 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/01/16 12:30:37 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	ft_grid_contains_wrong_char(char *grid, char *allowed_chars)
+int	ft_grid_contains_wrong_char(char *grid)
 {
 	int	i;
+	char	obstacle;
+	char	to_fill;
+	char	empty;
 
+	empty = ft_char_empty(grid);
+	to_fill = ft_char_to_fill(grid);
+	obstacle = ft_char_obstacle(grid);
 	i = 0;
 	while (grid[i])
 	{
-		if (grid[i] == allowed_chars[0] ||
-			grid[i] == allowed_chars[1] ||
-			grid[i] == allowed_chars[2])
+		if (grid[i] == obstacle ||
+			grid[i] == to_fill ||
+			grid[i] == empty)
 			i++;
 		else
 			return (1);
@@ -36,14 +42,14 @@ int	ft_is_line_number(char *grid)
 	int	i;
 	int	count;
 
-	params = ft_grid_get_params(grid);
+	params = ft_grid_get_line(grid, 1);
 	nbr_line = ft_number_of_line(params);
 	count = 0;
 	i = ft_strlen(params);
 	while (grid[i])
 	{
 		if (grid[i] == '\n')
-			count++;
+		count++;
 		i++;
 	}
 	if (nbr_line == count)
@@ -79,15 +85,16 @@ int	ft_is_all_line(char *grid)
 	return (0);
 }
 
-int	ft_is_print_char(char *param_line)
+int	ft_is_print_char(char *grid)
 {
 	char	empty;
 	char	to_fill;
 	char	obstacle;
 
-	empty = ft_char_empty(param_line);
-	to_fill = ft_char_to_fill(param_line);
-	obstacle = ft_char_obstacle(param_line);
+	grid = ft_grid_get_line(grid, 1);
+	empty = ft_char_empty(grid);
+	to_fill = ft_char_to_fill(grid);
+	obstacle = ft_char_obstacle(grid);
 	if ((empty < 32 || empty > 126) ||
 		(to_fill < 32 || to_fill > 126) ||
 		(obstacle < 32 || obstacle > 126))

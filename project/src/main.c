@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/06 23:50:52 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/11 17:46:50 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/01/16 12:28:03 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 int	main(int ac, char **av)
 {
-	int	len;
+	(void)ac;
+	(void)av;
 
-	len = ft_is_all_line(av[1]);
-	printf("all G : %d\n", len);
 	return (0);
 }
