@@ -1,0 +1,8 @@
+Added functions :
+- ft_is_minimal_grid : verify the minimal standards for the grid (one line of at least 1 char, at least 4 parameters)
+
+Uptdated functions :
+- ft_grid_control : added the above func in the ptr to func array
+- ft_grid_constains_wrong_char : renamed to ft_is_wrong_char
+
+Header updated

@@ -6,13 +6,13 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 12:00:58 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/16 12:30:37 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/01/16 15:30:48 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	ft_grid_contains_wrong_char(char *grid)
+int	ft_is_wrong_char(char *grid)
 {
 	int	i;
 	char	obstacle;
@@ -98,6 +98,20 @@ int	ft_is_print_char(char *grid)
 	if ((empty < 32 || empty > 126) ||
 		(to_fill < 32 || to_fill > 126) ||
 		(obstacle < 32 || obstacle > 126))
+		return (1);
+	return (0);
+}
+
+int	ft_is_minimal_grid(char *grid)
+{
+	char	*params;
+	char	*line_one;
+
+	params = ft_grid_get_line(grid, 1);	
+	if (ft_strlen(params) < 5)
+		return (1);
+	line_one = ft_grid_get_line(grid, 2);
+	if (ft_strlen(line_one) < 2)
 		return (1);
 	return (0);
 }
