@@ -6,13 +6,13 @@
 #    By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/06 23:15:02 by kpiacent          #+#    #+#              #
-#    Updated: 2016/01/07 12:30:17 by kpiacent         ###   ########.fr        #
+#    Updated: 2016/01/10 23:12:19 by kpiacent         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 CC = gcc -c
 AR = ar rc
-FILES = ft_putchar.c ft_putstr.c ft_puterror.c ft_putnbr.c
+FILES = ft_putchar.c ft_putstr.c ft_puterror.c ft_putnbr.c ft_atoi.c
 LIB = libft.a
 OBJ = $(FILES:.c=.o)
 TEMP = Makefile~ header.h~ $(FILES:.c=.c~)

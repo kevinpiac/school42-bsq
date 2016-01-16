@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 16:48:20 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/09 12:09:50 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/16 11:02:43 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_grid_line_length(char *grid, int line)
 	start = 0;
 	current_line = 1;
 	i = 0;
-	len = -1;
+	len = 0;
 	while (grid[i])
 	{
 		if (grid[i] == '\n')
@@ -98,14 +98,14 @@ char	**ft_to_final_grid(char *grid, int nb_lines)
 	return (final_grid);
 }
 
-void	ft_print_grid(char **grid)
+void	ft_print_grid(t_grid *this)
 {
 	int		i;
 
 	i = 0;
-	while (grid[i])
+	while (this->body[i])
 	{
-		ft_putstr(grid[i]);
+		ft_putstr(this->body[i]);
 		i++;
 	}
 }

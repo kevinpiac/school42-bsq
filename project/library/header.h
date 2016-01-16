@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/06 22:55:38 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/08 22:32:29 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/16 11:02:52 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,15 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <fcntl.h>
+# include "grid.h"
 
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_puterror(char *str);
 void	ft_putnbr(int i);
-void	ft_print_grid(char **grid);
+int		ft_atoi(char *str);
+
+void	ft_print_grid(t_grid *this);
 int		ft_file_length(char *file);
 int		ft_grid_line_length(char *grid, int line);
 int		ft_grid_contains_wrong_char(char *grid, char *allowed_chars);
