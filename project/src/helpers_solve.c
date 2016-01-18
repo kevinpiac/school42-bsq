@@ -6,40 +6,30 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 10:33:29 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/17 18:40:30 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/18 23:48:43 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
 /*
 int		ft_try_square(int begin_x, int begin_y, t_grid *grid)
 {
-	int		x;
-	int		y;
 	int		size;
 
+	size = 0;
 	if (!ft_is_valid_begin(grid, begin_x, begin_y))
+		return (0);
+	else if (ft_find_obstacle(begin_x, begin_y, grid))
 		return (0);
 	else
 	{
-		size = 2;
-		x = begin_x + 1;
-		y = begin_y + 1;
-		while (
-			ft_is_empty_col(x, y, grid, size) &&
-			ft_is_empty_line(x, y, grid, size))
-		{
-			x++;
-			y++;
+		grid->max_square++;
+		while (ft_find_obstacle(begin_x, begin_y, grid))
 			size++;
-		}
-		ft_is_empty_col(x, y, grid, size);
-//		if(!ft_is_empty_col(x, y, grid, size))
-//		   grid->next_y = y + 1;
-		if (size - 1 > grid->max_square)
-			grid->max_square = size - 1;
+		grid->max_square += size;
 	}
-	return (size - 1);
+	return (grid->max_square);
 }
 */
 int		ft_is_valid_begin(t_grid *grid, int x, int y)

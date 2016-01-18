@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/16 12:34:53 by nhuber            #+#    #+#             */
-/*   Updated: 2016/01/18 15:20:08 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/19 00:10:10 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_grid_control(char *grid)
 {
-	int	(*f[5])(char *);
-	int	i;
+	int		(*f[5])(char *);
+	int		i;
 
 	i = 0;
 	f[0] = &ft_is_minimal_grid;
@@ -33,4 +33,4 @@ int	ft_grid_control(char *grid)
 		i++;
 	}
 	return (0);
-}	
+}

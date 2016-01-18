@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 13:11:08 by nhuber            #+#    #+#             */
-/*   Updated: 2016/01/16 15:30:15 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/01/19 00:10:59 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	ft_char_to_fill(char *grid)
 {
-	char *tab;
+	char	*tab;
 
 	tab = ft_grid_get_line(grid, 1);
 	tab = ft_strrev(tab);
@@ -23,7 +23,7 @@ char	ft_char_to_fill(char *grid)
 
 char	ft_char_obstacle(char *grid)
 {
-	char *tab;
+	char	*tab;
 
 	tab = ft_grid_get_line(grid, 1);
 	tab = ft_strrev(tab);
@@ -36,13 +36,13 @@ char	ft_char_empty(char *grid)
 
 	tab = ft_grid_get_line(grid, 1);
 	tab = ft_strrev(tab);
-	return (tab[3]);	
+	return (tab[3]);
 }
 
-int	ft_number_of_line(char *grid)
+int		ft_number_of_line(char *grid)
 {
 	char	*tab;
-	int	len;
+	int		len;
 	char	*param_line;
 
 	param_line = ft_grid_get_line(grid, 1);
@@ -55,18 +55,3 @@ int	ft_number_of_line(char *grid)
 	free(tab);
 	return (len);
 }
-
-/*
-char	*ft_grid_get_params(char *grid)
-{
-	char	*param_line;
-	int	i;
-
-	i = 0;
-	while (grid[i] != '\n')
-		i++;
-	if (!(param_line = (char *)malloc(sizeof(char) * i + 1)))
-		return (NULL);
-	param_line = ft_strncpy(param_line, grid, i);
-	return (param_line);
-}*/

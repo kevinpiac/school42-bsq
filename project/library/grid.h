@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 21:53:19 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/16 13:38:32 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/19 00:13:38 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 typedef struct		s_params
 {
-	int		line_nbr;
-	char	empty;
-	char	obstacle;
-	char	fill;
+	int			line_nbr;
+	char		empty;
+	char		obstacle;
+	char		fill;
 }					t_params;
 
 typedef struct		s_grid
@@ -27,6 +27,8 @@ typedef struct		s_grid
 
 	t_params	params;
 	char		**body;
+	int			**obstacle_map;
+	int			obstacle_nbr;
 	int			line_len;
 	int			max_square;
 	int			next_x;
@@ -39,4 +41,4 @@ t_params *new_params(char *params);
 void	grid_init(t_grid *this, t_params *params, char *grid);
 t_grid	*new_grid(t_params *params, char *grid);
 
-#endif 
+#endif

@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 17:55:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/18 17:50:15 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/18 23:58:20 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,27 +28,23 @@ int		ft_obstacle_nbr(char *grid, char obstacle)
 	return (count);
 }
 
-int		**ft_to_obstacle_map(t_grid *grid, char *simple_grid)
+int		**ft_to_obstacle_map(t_grid *grid)
 {
 	int		x;
 	int		y;
 	int		i;
-	int		obstacle_nbr;
 	int		**array;
-	
-	x = 0;
-	y = 0;
+
+	x = -1;
 	i = -1;
-	obstacle_nbr = ft_obstacle_nbr(simple_grid, grid->params.obstacle);
-	array = malloc(sizeof(int*) * obstacle_nbr);
-	while (i++ < obstacle_nbr)
+	array = malloc(sizeof(int*) * grid->obstacle_nbr);
+	while (i++ < grid->obstacle_nbr)
 		array[i] = malloc(sizeof(int) * 2);
 	i = 0;
-
-	while (grid->body[x][y])
+	while (x++ < grid->params.line_nbr)
 	{
-		y = 0;
-		while (y < grid->line_len - 1)
+		y = -1;
+		while (y++ < grid->line_len - 1)
 		{
 			if (grid->body[x][y] == grid->params.obstacle)
 			{
@@ -56,9 +52,13 @@ int		**ft_to_obstacle_map(t_grid *grid, char *simple_grid)
 				array[i][1] = y;
 				i++;
 			}
-			y++;
 		}
-		x++;
 	}
 	return (array);
 }
+/*
+int		ft_find_obstacle(int begin_x, int begin_y, t_grid *grid)
+{
+	return (1);
+}
+*/

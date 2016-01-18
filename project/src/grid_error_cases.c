@@ -6,15 +6,15 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 12:00:58 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/16 15:30:48 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/01/19 00:03:29 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	ft_is_wrong_char(char *grid)
+int		ft_is_wrong_char(char *grid)
 {
-	int	i;
+	int		i;
 	char	obstacle;
 	char	to_fill;
 	char	empty;
@@ -35,12 +35,12 @@ int	ft_is_wrong_char(char *grid)
 	return (0);
 }
 
-int	ft_is_line_number(char *grid)
+int		ft_is_line_number(char *grid)
 {
-	char	*params; 
-	int	nbr_line;
-	int	i;
-	int	count;
+	char	*params;
+	int		nbr_line;
+	int		i;
+	int		count;
 
 	params = ft_grid_get_line(grid, 1);
 	nbr_line = ft_number_of_line(params);
@@ -49,7 +49,7 @@ int	ft_is_line_number(char *grid)
 	while (grid[i])
 	{
 		if (grid[i] == '\n')
-		count++;
+			count++;
 		i++;
 	}
 	if (nbr_line == count)
@@ -57,11 +57,11 @@ int	ft_is_line_number(char *grid)
 	return (1);
 }
 
-int	ft_is_all_line(char *grid)
+int		ft_is_all_line(char *grid)
 {
-	int	i;
-	int	y;
-	int	nbr_char;
+	int		i;
+	int		y;
+	int		nbr_char;
 
 	i = 0;
 	y = 0;
@@ -85,7 +85,7 @@ int	ft_is_all_line(char *grid)
 	return (0);
 }
 
-int	ft_is_print_char(char *grid)
+int		ft_is_print_char(char *grid)
 {
 	char	empty;
 	char	to_fill;
@@ -102,12 +102,12 @@ int	ft_is_print_char(char *grid)
 	return (0);
 }
 
-int	ft_is_minimal_grid(char *grid)
+int		ft_is_minimal_grid(char *grid)
 {
 	char	*params;
 	char	*line_one;
 
-	params = ft_grid_get_line(grid, 1);	
+	params = ft_grid_get_line(grid, 1);
 	if (ft_strlen(params) < 5)
 		return (1);
 	line_one = ft_grid_get_line(grid, 2);

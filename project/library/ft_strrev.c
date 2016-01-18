@@ -3,32 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/11 13:25:40 by nhuber            #+#    #+#             */
-/*   Updated: 2016/01/11 13:26:20 by nhuber           ###   ########.fr       */
+/*   Created: 2015/10/18 11:11:18 by kpiacent          #+#    #+#             */
+/*   Updated: 2015/10/23 13:38:49 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+int		ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
 
 char	*ft_strrev(char *str)
 {
-	int	i;
-	int	len;
+	int		i;
+	int		lenght;
 	char	tmp;
 
-	if (str)
+	i = 0;
+	lenght = ft_strlen(str);
+	while (i < lenght / 2)
 	{
-		i = 0;
-		len = ft_strlen(str);
-		while (i <= len / 2)
-		{
-			tmp = str[i];
-			str[i] = str[len - i];
-			str[len - i] = tmp;
-			i++;
-		}
+		tmp = str[i];
+		str[i] = str[lenght - i - 1];
+		str[lenght - i - 1] = tmp;
+		i++;
 	}
 	return (str);
 }
