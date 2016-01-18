@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 21:51:30 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/16 11:07:54 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/16 13:37:58 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void		grid_init(t_grid *this, t_params *params, char *grid)
 	this->params.fill = params->fill;
 	this->line_len = ft_grid_line_length(grid, 1);
 	this->max_square = 0;
+	this->next_x = 0;
+	this->next_y = 0;
 	this->body = ft_to_final_grid(grid, this->params.line_nbr);
 	this->print = ft_print_grid;
 	

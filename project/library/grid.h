@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 21:53:19 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/16 11:07:33 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/16 13:38:32 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef struct		s_grid
 	char		**body;
 	int			line_len;
 	int			max_square;
+	int			next_x;
+	int			next_y;
 }					t_grid;
 
 void	params_init(t_params *this, char *params);
