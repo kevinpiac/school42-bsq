@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/16 13:00:49 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/18 14:23:34 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/18 15:18:02 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,8 @@ char	*ft_strncpy(char *dst, char *src, int n);
 ** START KPIACENT'S FUNCTIONS
 */
 void	ft_print_grid(t_grid *this);
-void	ft_print_grid(char **grid);
 int		ft_file_length(char *file);
 int		ft_grid_line_length(char *grid, int line);
-int		ft_grid_contains_wrong_char(char *grid, char *allowed_chars);
 int		ft_try_square(int begin_x, int begin_y, t_grid *grid);
 int		ft_is_empty_box(char box, char param_empty);
 int		ft_is_valid_begin(t_grid *grid, int x, int y);

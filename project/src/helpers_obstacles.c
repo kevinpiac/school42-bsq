@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 17:55:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/18 10:49:07 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/18 17:50:15 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int		ft_obstacle_nbr(char *grid, char obstacle)
 			count++;
 		i++;
 	}
-
 	return (count);
 }
 
@@ -44,12 +43,12 @@ int		**ft_to_obstacle_map(t_grid *grid, char *simple_grid)
 	array = malloc(sizeof(int*) * obstacle_nbr);
 	while (i++ < obstacle_nbr)
 		array[i] = malloc(sizeof(int) * 2);
-
 	i = 0;
+
 	while (grid->body[x][y])
 	{
 		y = 0;
-		while (grid->body[x][y] != '\n')
+		while (y < grid->line_len - 1)
 		{
 			if (grid->body[x][y] == grid->params.obstacle)
 			{

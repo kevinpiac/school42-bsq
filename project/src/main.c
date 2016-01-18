@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/06 23:50:52 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/18 14:16:14 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/18 17:21:11 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	main(int ac, char **av)
 	grid = new_grid(params, simple_grid);
 	grid->print(grid);
 	obstacles = ft_to_obstacle_map(grid, simple_grid);
-//	ft_putnbr(ft_obstacle_nbr(simple_grid, grid->params.obstacle));
 	while (i < ft_obstacle_nbr(simple_grid, grid->params.obstacle))
 	{
 		ft_putnbr(obstacles[i][0]);
@@ -34,7 +33,7 @@ int	main(int ac, char **av)
 		ft_putnbr(obstacles[i][1]);
 		ft_putchar(' ');
 		i++;
-	}
-	if (ac)
-		return (1);
+	}	
+	if (ac == 1)
+		return (ac);
 }
