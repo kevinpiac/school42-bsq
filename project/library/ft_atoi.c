@@ -6,17 +6,9 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/19 10:36:37 by kpiacent          #+#    #+#             */
-/*   Updated: 2015/10/23 08:38:11 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/18 14:17:17 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int		ft_is_a_digit(char c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
-}
 
 int		ft_atoi(char *str)
 {
