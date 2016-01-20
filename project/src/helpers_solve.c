@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 10:33:29 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/18 23:48:43 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/19 10:16:09 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ int		ft_try_square(int begin_x, int begin_y, t_grid *grid)
 	else
 	{
 		grid->max_square++;
-		while (ft_find_obstacle(begin_x, begin_y, grid))
-			size++;
-		grid->max_square += size;
+		while (ft_find_obstacle(begin_x, begin_y, grid))	
+			grid->max_square++;
 	}
 	return (grid->max_square);
 }

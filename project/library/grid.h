@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 21:53:19 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/19 00:13:38 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/20 17:03:07 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct		s_grid
 	t_params	params;
 	char		**body;
 	int			**obstacle_map;
+	int			*obstacle_nbr_at;
 	int			obstacle_nbr;
 	int			line_len;
 	int			max_square;

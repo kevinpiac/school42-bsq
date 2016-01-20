@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 21:51:30 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/18 23:47:16 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/20 17:26:54 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ void		grid_init(t_grid *this, t_params *params, char *grid)
 	this->next_y = 0;
 	this->body = ft_to_final_grid(grid, this->params.line_nbr);
 	this->print = ft_print_grid;
-	this->obstacle_nbr = ft_obstacle_nbr(grid, this->params.obstacle);
+//	this->obstacle_nbr = ft_obstacle_nbr(grid, this->params.obstacle);
+	this->obstacle_nbr_at = ft_obstacle_nbr_line(this);
 	this->obstacle_map = ft_to_obstacle_map(this);
 }
 

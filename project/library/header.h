@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/16 13:00:49 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/18 23:39:50 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/20 17:43:23 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,9 @@ int		ft_is_empty_box(char box, char param_empty);
 int		ft_is_valid_begin(t_grid *grid, int x, int y);
 int		ft_obstacle_nbr(char *grid, char obstacle);
 int		ft_file_length(char *file);
-int		ft_find_obstacle(int begin_x, int begin_y, t_grid *grid);
 int		ft_grid_line_length(char *grid, int line);
+int		ft_is_between(int nbr, int nbr1, int nbr2);
+int		*ft_obstacle_nbr_line(t_grid *grid);
 int		**ft_to_obstacle_map(t_grid *grid);
 char	*ft_file_to_array(char *file);
 char	*ft_grid_get_params(char *grid);

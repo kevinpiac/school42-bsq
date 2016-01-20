@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 17:55:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/18 23:58:20 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/20 17:43:08 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,37 +28,61 @@ int		ft_obstacle_nbr(char *grid, char obstacle)
 	return (count);
 }
 
-int		**ft_to_obstacle_map(t_grid *grid)
+int		*ft_obstacle_nbr_line(t_grid *grid)
 {
 	int		x;
 	int		y;
-	int		i;
-	int		**array;
+	int		count;
+	int		*array;
 
+	array = malloc(sizeof(int) * grid->params.line_nbr);
 	x = -1;
-	i = -1;
-	array = malloc(sizeof(int*) * grid->obstacle_nbr);
-	while (i++ < grid->obstacle_nbr)
-		array[i] = malloc(sizeof(int) * 2);
-	i = 0;
 	while (x++ < grid->params.line_nbr)
 	{
+		count = 0;
 		y = -1;
-		while (y++ < grid->line_len - 1)
+		while (y++ < grid->line_len)
 		{
 			if (grid->body[x][y] == grid->params.obstacle)
-			{
-				array[i][0] = x;
-				array[i][1] = y;
-				i++;
-			}
+				count++;
 		}
+		array[x] = count;
 	}
 	return (array);
 }
-/*
-int		ft_find_obstacle(int begin_x, int begin_y, t_grid *grid)
+
+int		**ft_to_obstacle_map(t_grid *grid)
 {
-	return (1);
+	int		y;
+	int		i;
+	int		j;
+	int		**array;
+
+	i = -1;
+	array = malloc(sizeof(int *) * grid->params.line_nbr);
+	while (i++ < grid->params.line_nbr)
+		array[i] = malloc(sizeof(int) * grid->obstacle_nbr_at[i]);
+	i = -1;
+	while (i++ < grid->params.line_nbr)
+	{
+		j = 0;
+		y = 0;
+		while (y < grid->obstacle_nbr_at[i])
+		{
+			if (grid->body[i][j] == grid->params.obstacle)
+			{
+				array[i][y] = j;
+				y++;
+			}
+			j++;
+		}			
+	}
+	return (array);
 }
-*/
+
+int		ft_is_between(int nbr, int nbr1, int nbr2)
+{
+	if (nbr >= nbr1 && nbr <= nbr2)
+		return (1);
+	return (0);
+}
