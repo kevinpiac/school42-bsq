@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 17:55:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/20 17:43:08 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/20 19:50:44 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,26 @@ int		**ft_to_obstacle_map(t_grid *grid)
 	return (array);
 }
 
-int		ft_is_between(int nbr, int nbr1, int nbr2)
+int		ft_line_has_obstacle(int x, int y, t_grid *grid)
 {
-	if (nbr >= nbr1 && nbr <= nbr2)
-		return (1);
+	int		i;
+	int		first;
+	int		middle;
+	int		last;
+
+	i = -1;
+	first = 0;
+	last = grid->obstacle_nbr_at[x] - 1;
+	while (first <= last)
+	{
+		middle = (first + last) / 2;
+		if (grid->obstacle_map[x][middle] >= y &&
+			grid->obstacle_map[x][middle] <= y + grid->max_square - 1)
+			return (1);
+		if (grid->obstacle_map[x][middle] > y + grid->max_square - 1)
+			last = middle - 1;
+		if (grid->obstacle_map[x][middle] < y)
+			first = middle + 1;
+	}
 	return (0);
 }
