@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/16 13:00:49 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/20 19:50:52 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/23 13:09:55 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ char	*ft_strncpy(char *dst, char *src, int n);
 ** START KPIACENT'S FUNCTIONS
 */
 void	ft_print_grid(t_grid *this);
+void	ft_set_next_y(int x, t_grid *grid);
 int		ft_file_length(char *file);
 int		ft_grid_line_length(char *grid, int line);
 int		ft_try_square(int begin_x, int begin_y, t_grid *grid);
@@ -45,8 +46,8 @@ int		ft_is_valid_begin(t_grid *grid, int x, int y);
 int		ft_obstacle_nbr(char *grid, char obstacle);
 int		ft_file_length(char *file);
 int		ft_grid_line_length(char *grid, int line);
-int		ft_line_has_obstacle(int x, int y, t_grid *grid);
-int		*ft_obstacle_nbr_line(t_grid *grid);
+int		ft_col_has_obstacle(int x, int y, t_grid *grid);
+int		*ft_obstacle_nbr_col(t_grid *grid);
 int		**ft_to_obstacle_map(t_grid *grid);
 char	*ft_file_to_array(char *file);
 char	*ft_grid_get_params(char *grid);
