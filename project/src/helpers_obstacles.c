@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 17:55:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/23 14:27:42 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/24 22:35:23 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,9 @@ int		ft_col_has_obstacle(int x, int y, t_grid *grid)
 	{
 		middle = (first + last) / 2;
 		if (grid->obstacle_map[y][middle] >= x &&
-			grid->obstacle_map[y][middle] <= x + grid->max_square  - 1)
+			grid->obstacle_map[y][middle] <= x + grid->max_square)
 			return (1);
-		if (grid->obstacle_map[y][middle] > x + grid->max_square - 1)
+		if (grid->obstacle_map[y][middle] > x + grid->max_square)
 			last = middle - 1;
 		if (grid->obstacle_map[y][middle] < x)
 			first = middle + 1;
