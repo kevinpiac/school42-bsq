@@ -6,38 +6,41 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 21:51:30 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/25 16:59:04 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/27 18:29:22 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		params_init(t_params *this, char *params)
+void		params_init(t_params *this, char *grid)
 {
-	this->line_nbr = params[0] - '0';
-	this->empty = params[1];
-	this->obstacle = params[2];
-	this->fill = params[3];
+	this->line_nbr = ft_number_of_line(grid);
+	this->empty = ft_char_empty(grid);
+	this->obstacle = ft_char_obstacle(grid);
+	this->fill = ft_char_to_fill(grid);
 }
 
-t_params	*new_params(char *params)
+t_params	*new_params(char *grid)
 {
 	t_params *this;
 
 	this = malloc(sizeof(t_params));
 	if (!this)
 		return (NULL);
-	params_init(this, params);
+	params_init(this, grid);
 	return (this);
 }
 
 void		grid_init(t_grid *this, t_params *params, char *grid)
 {
+	int y;
+	if (!this || !params || !grid)
+		y = 0;
 	this->params.line_nbr = params->line_nbr;
 	this->params.empty = params->empty;
 	this->params.obstacle = params->obstacle;
 	this->params.fill = params->fill;
-	this->line_len = ft_grid_line_length(grid, 1);
+	this->line_len = ft_grid_line_length(grid, 2);
 	this->max_square = 0;
 	this->next_x = 0;
 	this->next_y = 0;

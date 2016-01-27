@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 17:55:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/26 00:02:37 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/23 12:52:43 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,60 +28,59 @@ int		ft_obstacle_nbr(char *grid, char obstacle)
 	return (count);
 }
 
-int		*ft_obstacle_nbr_col(t_grid *grid)
+int		*ft_obstacle_nbr_line(t_grid *grid)
 {
 	int		x;
 	int		y;
 	int		count;
 	int		*array;
 
-	array = malloc(sizeof(int) * grid->line_len);
-	y = -1;
-	while (y++ < grid->line_len)
+	array = malloc(sizeof(int) * grid->params.line_nbr);
+	x = -1;
+	while (x++ < grid->params.line_nbr)
 	{
 		count = 0;
-		x = -1;
-		while (x++ < grid->params.line_nbr)
+		y = -1;
+		while (y++ < grid->line_len)
 		{
 			if (grid->body[x][y] == grid->params.obstacle)
 				count++;
 		}
-		array[y] = count;
+		array[x] = count;
 	}
 	return (array);
 }
 
 int		**ft_to_obstacle_map(t_grid *grid)
 {
-	int		i;
-	int		x;
 	int		y;
-	int		**array = NULL;
+	int		i;
+	int		j;
+	int		**array;
 
-	y = -1;
-	array = malloc(sizeof(int *) * grid->line_len);
-	while (y++ < grid->line_len - 1)
-		array[y] = malloc(sizeof(int) * grid->obstacle_nbr_at[y]);
-	y = -1;
-	while (y++ < grid->line_len - 1)
+	i = -1;
+	array = malloc(sizeof(int *) * grid->params.line_nbr);
+	while (i++ < grid->params.line_nbr)
+		array[i] = malloc(sizeof(int) * grid->obstacle_nbr_at[i]);
+	i = -1;
+	while (i++ < grid->params.line_nbr)
 	{
-		x = 0;
-		i = 0;
-		while (i < grid->obstacle_nbr_at[y])
+		j = 0;
+		y = 0;
+		while (y < grid->obstacle_nbr_at[i])
 		{
-			if (grid->body[x][y] == grid->params.obstacle)
+			if (grid->body[i][j] == grid->params.obstacle)
 			{
-				array[y][i] = x;
-				i++;
+				array[i][y] = j;
+				y++;
 			}
-			x++;
+			j++;
 		}
 	}
 	return (array);
 }
 
-
-int		ft_col_has_obstacle(int x, int y, t_grid *grid)
+int		ft_line_has_obstacle(int x, int y, t_grid *grid)
 {
 	int		i;
 	int		first;
@@ -90,16 +89,19 @@ int		ft_col_has_obstacle(int x, int y, t_grid *grid)
 
 	i = -1;
 	first = 0;
-	last = grid->obstacle_nbr_at[y] - 1;
+	last = grid->obstacle_nbr_at[x] - 1;
 	while (first <= last)
 	{
 		middle = (first + last) / 2;
-		if (grid->obstacle_map[y][middle] >= x &&
-			grid->obstacle_map[y][middle] <= x + grid->max_square)
+		if (grid->obstacle_map[x][middle] >= y &&
+			grid->obstacle_map[x][middle] <= y + grid->max_square)
+		{
+			grid->current_obstacle_index = middle;
 			return (1);
-		if (grid->obstacle_map[y][middle] > x + grid->max_square)
+		}
+		if (grid->obstacle_map[x][middle] > y + grid->max_square)
 			last = middle - 1;
-		if (grid->obstacle_map[y][middle] < x)
+		if (grid->obstacle_map[x][middle] < y)
 			first = middle + 1;
 	}
 	return (0);

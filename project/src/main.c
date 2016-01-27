@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/06 23:50:52 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/25 16:59:16 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/27 18:29:35 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,11 @@ int	main(int ac, char **av)
 	y = -1;
 	simple_grid = ft_file_to_array(av[1]);
 	
-	params = new_params("9.ox");
+	params = new_params(simple_grid);
+	
 	grid = new_grid(params, simple_grid);
 	grid->print(grid);
-	y = 0;
-//	grid->max_square = 5;
-//	printf("result :%d\n", ft_col_has_obstacle(1, 6, grid));
+	y = -1;
 	ft_find_max_square(grid);
 	if (!ac)
 		return (0);

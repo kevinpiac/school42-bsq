@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 08:47:21 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/17 17:55:32 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/27 18:14:46 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_file_to_array(char *file)
 
 	file_len = ft_file_length(file);
 	if (!(buf = malloc(sizeof(char) * file_len)))
-		return (0);
+		return (NULL);
 	fd = open(file, O_RDONLY);
 	if (fd != -1)
 		read(fd, buf, file_len);
