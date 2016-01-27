@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 16:48:20 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/27 18:20:40 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/27 19:36:54 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,6 @@ void	ft_print_grid(t_grid *this)
 	int		i;
 
 	i = -1;
-	while (i++ < this->params.line_nbr)
-		ft_putstr(this->body[i]);
+	while (i++ < this->params.line_nbr - 1)
+		write(1, this->body[i], this->line_len);
 }

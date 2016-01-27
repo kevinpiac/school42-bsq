@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 10:33:29 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/25 17:39:30 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/01/27 20:17:12 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,7 @@ void	ft_find_max_square(t_grid *grid)
 		ret = ft_is_valid_begin(grid, grid->next_x, grid->next_y);
 		if (ret == -1)
 		{
-			printf("SOLVED -> max possible square: %d\n", grid->max_square);
-			printf("Located at :\n x: %d, y: %d\n", grid->max_square_x, grid->max_square_y);
+			ft_fill_grid(grid);
 			return ;
 		}
 		if (ret == 0)
@@ -59,6 +58,21 @@ void	ft_find_max_square(t_grid *grid)
 			grid->next_y = 0;
 		}
 		ft_try_square(grid->next_x, grid->next_y, grid);
+	}
+}
+
+void	ft_fill_grid(t_grid *grid)
+{
+	int		x;
+	int		y;
+	x = -1;
+	while (x++ < grid->max_square - 1)
+	{
+		y = -1;
+		while (y++ < grid->max_square - 1)
+		{
+			grid->body[grid->max_square_x + x][grid->max_square_y + y] = grid->params.fill;
+		}
 	}
 }
 
