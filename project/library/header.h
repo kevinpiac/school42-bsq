@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/16 13:00:49 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/27 18:55:05 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/10 18:01:05 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include "grid.h"
-
+# define BUFF_SIZE 8192
 /*
 ** START LIBFT FUNCTIONS
 */
@@ -28,7 +28,10 @@ void	ft_putnbr(int i);
 int		ft_atoi(char *str);
 int		ft_strlen(char *str);
 char	*ft_strrev(char *str);
+char	*ft_strcpy(char *str);
 char	*ft_strncpy(char *dst, char *src, int n);
+char	*ft_strconcat(char *s1, char *s2);
+
 /*
 ** END LIBFT FUNCTIONS
 */
@@ -40,13 +43,11 @@ void	ft_print_grid(t_grid *this);
 void	ft_set_next_y(int x, t_grid *grid);
 void	ft_find_max_square(t_grid *grid);
 void	ft_fill_grid(t_grid *grid);
-int		ft_file_length(char *file);
 int		ft_grid_line_length(char *grid, int line);
 int		ft_try_square(int begin_x, int begin_y, t_grid *grid);
 int		ft_is_empty_box(char box, char param_empty);
 int		ft_is_valid_begin(t_grid *grid, int x, int y);
 int		ft_obstacle_nbr(char *grid, char obstacle);
-int		ft_file_length(char *file);
 int		ft_grid_line_length(char *grid, int line);
 int		ft_col_has_obstacle(int x, int y, t_grid *grid);
 int		*ft_obstacle_nbr_col(t_grid *grid);
@@ -73,8 +74,9 @@ int		ft_is_print_char(char *grid);
 int		ft_is_all_line(char *grid);
 int		ft_is_minimal_grid(char *grid);
 int		ft_grid_control(char *grid);
+char		*ft_stdin_to_array(void);
 /*
-** START NHUBER'S FUNCTIONS
+** END NHUBER'S FUNCTIONS
 */
 
 #endif

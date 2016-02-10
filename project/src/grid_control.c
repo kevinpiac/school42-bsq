@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/16 12:34:53 by nhuber            #+#    #+#             */
-/*   Updated: 2016/01/27 21:58:24 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/10 18:02:04 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_grid_control(char *grid)
 	f[2] = &ft_is_line_number;
 	f[3] = &ft_is_all_line;
 	f[4] = &ft_is_print_char;
-	while (i < 6)
+	while (i < 5)
 	{
 		if (f[i](grid) == 1)
 		{

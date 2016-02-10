@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 12:00:58 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/19 00:03:29 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/10 18:02:06 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,18 @@ int		ft_is_wrong_char(char *grid)
 	to_fill = ft_char_to_fill(grid);
 	obstacle = ft_char_obstacle(grid);
 	i = 0;
+	while (grid[i] != '\n')
+		i++;
 	while (grid[i])
 	{
 		if (grid[i] == obstacle ||
 			grid[i] == to_fill ||
-			grid[i] == empty)
+			grid[i] == empty || grid[i] == '\n')
 			i++;
 		else
+		{
 			return (1);
+		}
 	}
 	return (0);
 }
@@ -77,9 +81,11 @@ int		ft_is_all_line(char *grid)
 	i++;
 	while (grid[i])
 	{
-		if (grid[i] == '\n' && y % nbr_char != 0)
+		if (grid[i] == '\n' && y % nbr_char != 0 && grid[i + 1] != '\0')
 			return (1);
 		y++;
+		if (grid[i] == '\n')
+			y = 0;	
 		i++;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 08:47:21 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/01/27 18:14:46 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/02/10 18:01:38 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,36 +15,44 @@
 char	*ft_file_to_array(char *file)
 {
 	int		fd;
-	int		file_len;
-	char	*buf;
+	int		ret;
+	char	*buffer;
+	char	*prev;
 
-	file_len = ft_file_length(file);
-	if (!(buf = malloc(sizeof(char) * file_len)))
-		return (NULL);
 	fd = open(file, O_RDONLY);
-	if (fd != -1)
-		read(fd, buf, file_len);
-	buf[file_len] = '\0';
-	return (buf);
+	prev = NULL;
+	if (!(buffer = (char *)malloc(sizeof(char) * BUFF_SIZE + 1)))
+		return (NULL);
+	while ((ret = read(fd, buffer, BUFF_SIZE)) != 0)
+	{
+		buffer[ret] = '\0';
+		if (prev == NULL)
+			prev = buffer;
+		else
+			prev = ft_strconcat(prev, buffer);
+	}
+	free(buffer);
+	close(fd);
+	return (prev);
 }
 
-int		ft_file_length(char *file)
+char	*ft_stdin_to_array(void)
 {
-	int		fd;
 	int		ret;
-	int		len;
-	char	buf[1];
+	char	*buffer;
+	char	*prev;
 
-	fd = open(file, O_RDONLY);
-	len = 0;
-	if (fd != -1)
+	prev = NULL;
+	if (!(buffer = (char *)malloc(sizeof(char) * BUFF_SIZE + 1)))
+		return (NULL);
+	while ((ret = read(0, buffer, BUFF_SIZE)) != 0)
 	{
-		while ((ret = read(fd, buf, 1)))
-			len++;
-		if (close(fd) == -1)
-			ft_puterror("Close() failed\n");
+		buffer[ret] = '\0';
+		if (prev == NULL)
+			prev = buffer;
+		else
+			prev = ft_strconcat(prev, buffer);
 	}
-	else
-		ft_puterror("Open() failed\n");
-	return (len);
+	free(buffer);
+	return (prev);
 }

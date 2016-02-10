@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   ft_strconcat.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/18 11:11:18 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/08 17:40:24 by nhuber           ###   ########.fr       */
+/*   Created: 2016/01/21 14:40:48 by nhuber            #+#    #+#             */
+/*   Updated: 2016/02/10 17:34:33 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-char	*ft_strrev(char *str)
+char	*ft_strconcat(char *s1, char *s2)
 {
+	char	*ret;
 	int		i;
-	int		lenght;
-	char	tmp;
+	int		j;
 
+	i = ft_strlen(s1);
+	j = ft_strlen(s2);
+	if (!(ret = (char *)malloc(sizeof(char) * (i + j + 1))))
+		return (NULL);
 	i = 0;
-	lenght = ft_strlen(str);
-	while (i < lenght / 2)
+	j = 0;
+	while (s1[i])
 	{
-		tmp = str[i];
-		str[i] = str[lenght - i - 1];
-		str[lenght - i - 1] = tmp;
+		ret[i] = s1[i];
 		i++;
 	}
-	return (str);
+	while (s2[j])
+	{
+		ret[i] = s2[j];
+		i++;
+		j++;
+	}
+	ret[i] = '\0';
+	return (ret);
 }

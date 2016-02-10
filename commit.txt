@@ -1,8 +1,14 @@
 Added functions :
 - ft_is_minimal_grid : verify the minimal standards for the grid (one line of at least 1 char, at least 4 parameters)
 
+Added functions :
+- ft_stdin_to_array : read standard input and put it in an array
+
 Uptdated functions :
-- ft_grid_control : added the above func in the ptr to func array
-- ft_grid_constains_wrong_char : renamed to ft_is_wrong_char
+- ft_file_length : deleted
+- ft_file_to_array : now read BUFF_SIZE number of char
+- ft_strrev : missing header inclusion
+- ft_grid_control : fixed minor bugg
 
 Header updated
+- added #define BUFF_SIZE 8192 (optimal generic size for buffer)
