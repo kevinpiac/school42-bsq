@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/16 13:00:49 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/10 18:01:05 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/02/11 16:56:15 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int		ft_strlen(char *str);
 char	*ft_strrev(char *str);
 char	*ft_strcpy(char *str);
 char	*ft_strncpy(char *dst, char *src, int n);
+char	*ft_strcreatecpy(char *src);
 char	*ft_strconcat(char *s1, char *s2);
 
 /*

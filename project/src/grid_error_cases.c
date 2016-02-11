@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 12:00:58 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/10 18:02:06 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/02/11 17:11:15 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ int		ft_is_wrong_char(char *grid)
 			grid[i] == empty || grid[i] == '\n')
 			i++;
 		else
-		{
 			return (1);
-		}
 	}
 	return (0);
 }

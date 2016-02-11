@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   grid_control.c                                     :+:      :+:    :+:   */
+/*   ft_strcreatecpy.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/16 12:34:53 by nhuber            #+#    #+#             */
-/*   Updated: 2016/02/11 17:11:19 by nhuber           ###   ########.fr       */
+/*   Created: 2016/01/25 18:36:41 by nhuber            #+#    #+#             */
+/*   Updated: 2016/02/01 20:22:01 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	ft_grid_control(char *grid)
+char	*ft_strcreatecpy(char *src)
 {
-	int		(*f[5])(char *);
+	char	*str;
 	int		i;
 
+	if (!(str = (char *)malloc(sizeof(char) * ft_strlen(src) + 1)))
+		return (NULL);
 	i = 0;
-	f[0] = &ft_is_minimal_grid;
-	f[1] = &ft_is_wrong_char;
-	f[2] = &ft_is_line_number;
-	f[3] = &ft_is_all_line;
-	f[4] = &ft_is_print_char;
-	while (i < 5)
+	while (src[i])
 	{
-		if (f[i](grid) == 1)
-		{
-			ft_puterror("map error\n");
-			return (1);
-		}
+		str[i] = src[i];
 		i++;
 	}
-	return (0);
+	str[i] = '\0';
+	return (str);
 }
