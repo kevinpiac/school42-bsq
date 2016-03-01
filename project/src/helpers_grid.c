@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 16:48:20 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/11 17:26:44 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/03/01 10:09:26 by kevin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ char	**ft_to_final_grid(char *grid, int nb_lines)
 	i = -1;
 	while (i++ < nb_lines + 1)
 		final_grid[i] = (char *)malloc(sizeof(char) * line_len + 1);
-
 	grid = ft_grid_find_line(grid, 2);
 	i = 0;
 	j = 0;
@@ -106,7 +105,7 @@ char	**ft_to_final_grid(char *grid, int nb_lines)
 		{
 			final_grid[j][k + 1] = '\0';
 			k = -1;
-			j++; 
+			j++;
 		}
 		k++;
 		i++;

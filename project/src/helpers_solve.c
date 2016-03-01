@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 10:33:29 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/11 17:12:04 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/03/01 11:26:31 by kevin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,9 @@ void	ft_fill_grid(t_grid *grid)
 
 int		ft_is_valid_begin(t_grid *grid, int x, int y)
 {
-	if (x >= (grid->params.line_nbr - grid->max_square))
+	if (x >= (grid->params.line_nbr - 1 - grid->max_square))
 		return (-1);
-	if (y >= (grid->line_len - grid->max_square))
+	if (y >= (grid->line_len - 1 - grid->max_square))
 			return (0);
 	return (1);
 }
