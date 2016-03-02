@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/16 13:00:49 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/02 10:18:35 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/03/02 11:26:51 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define HEADER_H
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include <fcntl.h>
 # include "grid.h"
 # define BUFF_SIZE 8192
@@ -58,7 +57,7 @@ int		ft_is_print_char(char *grid);
 int		ft_is_all_line(char *grid);
 int		ft_is_minimal_grid(char *grid);
 int		ft_grid_control(char *grid);
-char		*ft_stdin_to_array(void);
+char	*ft_stdin_to_array(void);
 void	multiple_file(int ac, char **av);
-
+char	**ft_filoutage(char *grid, char **final_grid);
 #endif

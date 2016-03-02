@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 12:00:58 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/02 11:04:55 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/03/02 11:40:24 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,22 +68,21 @@ int		ft_is_all_line(char *grid)
 	i = 0;
 	y = 0;
 	nbr_char = 0;
-	while (grid[i++] != '\n')
+	while (grid[i] != '\n')
+		i++;
 	i++;
 	while (grid[i] != '\n')
 	{
 		nbr_char++;
 		i++;
 	}
-	i++;
-	while (grid[i])
+	while (grid[++i])
 	{
 		if (grid[i] == '\n' && y % nbr_char != 0 && grid[i + 1] != '\0')
 			return (1);
 		y++;
 		if (grid[i] == '\n')
 			y = 0;
-		i++;
 	}
 	return (0);
 }
