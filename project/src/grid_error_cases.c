@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 12:00:58 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/11 17:11:15 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/03/02 09:57:45 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int		ft_is_all_line(char *grid)
 			return (1);
 		y++;
 		if (grid[i] == '\n')
-			y = 0;	
+			y = 0;
 		i++;
 	}
 	return (0);
