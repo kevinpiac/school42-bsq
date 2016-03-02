@@ -6,7 +6,7 @@
 #    By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/06 21:21:40 by kpiacent          #+#    #+#              #
-#    Updated: 2016/01/18 15:06:48 by kpiacent         ###   ########.fr        #
+#*   Updated: 2016/03/02 10:57:35 by nhuber           ###   ########.fr       *#
 #                                                                              #
 #******************************************************************************#
 
@@ -17,7 +17,7 @@ L_DIR = library
 F_DIR = src
 H_DIR = library
 FILES = $(F_DIR)/main.c $(F_DIR)/helpers_read.c $(F_DIR)/grid_error_cases.c $(F_DIR)/helpers_grid.c\
-		$(F_DIR)/grid.c $(F_DIR)/helpers_solve.c $(F_DIR)/helpers_obstacles.c $(F_DIR)/grid_params.c $(F_DIR)/grid_control.c
+		$(F_DIR)/grid.c $(F_DIR)/helpers_solve.c $(F_DIR)/helpers_obstacles.c $(F_DIR)/grid_params.c $(F_DIR)/grid_control.c $(F_DIR)/solve.c
 TEMP = Makefile~ $(FILES:.c=.c~)
 
 all : $(EXEC)
