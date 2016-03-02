@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/16 13:00:49 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/02/11 16:56:15 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/03/02 10:18:35 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@
 # include <fcntl.h>
 # include "grid.h"
 # define BUFF_SIZE 8192
-/*
-** START LIBFT FUNCTIONS
-*/
+
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_puterror(char *str);
@@ -32,14 +30,6 @@ char	*ft_strcpy(char *str);
 char	*ft_strncpy(char *dst, char *src, int n);
 char	*ft_strcreatecpy(char *src);
 char	*ft_strconcat(char *s1, char *s2);
-
-/*
-** END LIBFT FUNCTIONS
-*/
-
-/*
-** START KPIACENT'S FUNCTIONS
-*/
 void	ft_print_grid(t_grid *this);
 void	ft_set_next_y(int x, t_grid *grid);
 void	ft_find_max_square(t_grid *grid);
@@ -58,13 +48,6 @@ char	*ft_grid_get_params(char *grid);
 char	*ft_grid_get_line(char *grid, int line_index);
 char	*ft_grid_find_line(char *grid, int searched_line);
 char	**ft_to_final_grid(char *grid, int nb_lines);
-/*
-** END KPIACENT'S FUNCTIONS
-*/
-
-/*
-** START NHUBER'S FUNCTIONS
-*/
 char	ft_char_obstacle(char *grid);
 char	ft_char_empty(char *grid);
 char	ft_char_to_fill(char *grid);
@@ -76,8 +59,6 @@ int		ft_is_all_line(char *grid);
 int		ft_is_minimal_grid(char *grid);
 int		ft_grid_control(char *grid);
 char		*ft_stdin_to_array(void);
-/*
-** END NHUBER'S FUNCTIONS
-*/
+void	multiple_file(int ac, char **av);
 
 #endif
