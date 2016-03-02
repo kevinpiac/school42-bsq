@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/06 23:50:52 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/02 10:17:49 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/03/02 11:03:54 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	main(int ac, char **av)
 	char		*simple_grid;
 	t_params	*params;
 	t_grid		*grid;
-	int		i;
 
 	if (ac == 1)
 	{
