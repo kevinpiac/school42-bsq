@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 17:55:50 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/02 10:02:20 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/02 20:58:37 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int		**ft_to_obstacle_map(t_grid *grid)
 	int		**array;
 
 	y = -1;
-	array = malloc(sizeof(int *) * grid->line_len);
+	array = malloc(sizeof(int *) * grid->line_len + 1);
 	while (y++ < grid->line_len - 1)
 		array[y] = malloc(sizeof(int) * grid->obstacle_nbr_at[y]);
 	y = -1;
@@ -87,6 +87,8 @@ int		ft_col_has_obstacle(int x, int y, t_grid *grid)
 	int		middle;
 	int		last;
 
+	if (x + grid->max_square >= grid->params.line_nbr)
+		return (1);
 	i = -1;
 	first = 0;
 	last = grid->obstacle_nbr_at[y] - 1;

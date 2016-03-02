@@ -6,20 +6,20 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 10:33:29 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/02 15:06:22 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/02 21:03:30 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int		ft_try_square(int begin_x, int begin_y, t_grid *grid)
+void	ft_try_square(int begin_x, int begin_y, t_grid *grid)
 {
 	int		i;
 
 	if (!ft_is_empty_box(grid->body[begin_x][begin_y], grid->params.empty))
 	{
 		grid->next_y++;
-		return (0);
+		return ;
 	}
 	i = 0;
 	while (i <= grid->max_square)
@@ -27,7 +27,7 @@ int		ft_try_square(int begin_x, int begin_y, t_grid *grid)
 		if (ft_col_has_obstacle(begin_x, begin_y + i, grid))
 		{
 			grid->next_y = begin_y + i + 1;
-			return (0);
+			return ;
 		}
 		i++;
 	}
@@ -37,7 +37,6 @@ int		ft_try_square(int begin_x, int begin_y, t_grid *grid)
 		grid->max_square_x = begin_x;
 		grid->max_square_y = begin_y;
 	}
-	return (grid->max_square);
 }
 
 void	ft_find_max_square(t_grid *grid)
@@ -70,20 +69,27 @@ void	ft_fill_grid(t_grid *grid)
 
 	gx = grid->max_square_x;
 	gy = grid->max_square_y;
-	x = -1;
-	while (x++ < grid->max_square - 1)
+	x = 0;
+	while (x < grid->max_square)
 	{
-		y = -1;
-		while (y++ < grid->max_square - 1)
+		y = 0;
+		while (y < grid->max_square)
 		{
 			grid->body[gx + x][gy + y] = grid->params.fill;
+			y++;
 		}
+		x++;
 	}
 }
 
 int		ft_is_valid_begin(t_grid *grid, int x, int y)
 {
-	if (x >= (grid->params.line_nbr - grid->max_square))
+	int		i;
+
+	i = 0;
+	if (grid->params.line_nbr > 1)
+		i = 1;
+	if (grid->max_square > (grid->params.line_nbr - x - i))
 		return (-1);
 	if (y >= (grid->line_len - 1 - grid->max_square))
 		return (0);

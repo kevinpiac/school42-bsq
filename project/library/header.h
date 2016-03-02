@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/16 13:00:49 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/02 11:26:51 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/02 21:04:22 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_set_next_y(int x, t_grid *grid);
 void	ft_find_max_square(t_grid *grid);
 void	ft_fill_grid(t_grid *grid);
 int		ft_grid_line_length(char *grid, int line);
-int		ft_try_square(int begin_x, int begin_y, t_grid *grid);
+void	ft_try_square(int begin_x, int begin_y, t_grid *grid);
 int		ft_is_empty_box(char box, char param_empty);
 int		ft_is_valid_begin(t_grid *grid, int x, int y);
 int		ft_obstacle_nbr(char *grid, char obstacle);
