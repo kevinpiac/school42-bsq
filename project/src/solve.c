@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/02 09:48:18 by nhuber            #+#    #+#             */
-/*   Updated: 2016/03/02 11:36:16 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/02 13:33:04 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	multiple_file(int ac, char **av)
 			grid = new_grid(params, simple_grid);
 			ft_find_max_square(grid);
 			grid->print(grid);
-			i++;
 		}
+		i++;
 	}
 }

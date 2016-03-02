@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 12:00:58 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/02 11:40:24 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/02 14:04:02 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,28 +61,28 @@ int		ft_is_line_number(char *grid)
 
 int		ft_is_all_line(char *grid)
 {
-	int		i;
 	int		y;
 	int		nbr_char;
 
-	i = 0;
 	y = 0;
 	nbr_char = 0;
-	while (grid[i] != '\n')
-		i++;
-	i++;
-	while (grid[i] != '\n')
+	while (*grid != '\n')
+		grid++;
+	grid++;
+	while (*grid != '\n')
 	{
+		grid++;
 		nbr_char++;
-		i++;
 	}
-	while (grid[++i])
+	grid++;
+	while (*grid)
 	{
-		if (grid[i] == '\n' && y % nbr_char != 0 && grid[i + 1] != '\0')
+		if (*grid == '\n' && y % nbr_char != 0 && *(grid + 1) != '\0')
 			return (1);
 		y++;
-		if (grid[i] == '\n')
+		if (*grid == '\n')
 			y = 0;
+		grid++;
 	}
 	return (0);
 }
