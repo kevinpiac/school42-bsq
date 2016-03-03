@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/02 09:48:18 by nhuber            #+#    #+#             */
-/*   Updated: 2016/03/02 13:33:04 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/03/03 15:36:54 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,40 @@ void	multiple_file(int ac, char **av)
 	i = 1;
 	while (i < ac)
 	{
-		simple_grid = ft_file_to_array(av[i]);
-		if (!ft_grid_control(simple_grid))
+		if (ft_filecheck(av[i]) == 1)
 		{
-			params = new_params(simple_grid);
-			grid = new_grid(params, simple_grid);
-			ft_find_max_square(grid);
-			grid->print(grid);
+			simple_grid = ft_file_to_array(av[i]);
+			if (!ft_grid_control(simple_grid))
+			{
+				params = new_params(simple_grid);
+				grid = new_grid(params, simple_grid);
+				ft_find_max_square(grid);
+				grid->print(grid);
+			}
 		}
 		i++;
 	}
+}
+
+int	ft_filecheck(char *fname)
+{
+	int	fd;
+	char	buffer[2];
+
+	if ((fd = open(fname, O_RDONLY)) == -1)
+	{
+		ft_puterror("map error\n");
+		return (0);
+	}
+	if ((read(fd, buffer, 2) < 2))
+	{
+		ft_puterror("map error\n");
+		return (0);
+	}
+	if ((close(fd)) == -1)
+	{
+		ft_puterror("map error\n");
+		return (0);
+	}
+	return (1);
 }
