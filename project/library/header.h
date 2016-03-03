@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/16 13:00:49 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/03 15:13:13 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/03/03 16:24:07 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,6 @@ int		ft_grid_control(char *grid);
 char	*ft_stdin_to_array(void);
 void	multiple_file(int ac, char **av);
 char	**ft_filoutage(char *grid, char **final_grid);
-int	ft_filecheck(char *fname);
+int		ft_filecheck(char *fname);
 
 #endif

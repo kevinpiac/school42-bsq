@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/02 09:48:18 by nhuber            #+#    #+#             */
-/*   Updated: 2016/03/03 15:36:54 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/03/03 16:25:03 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ void	multiple_file(int ac, char **av)
 	}
 }
 
-int	ft_filecheck(char *fname)
+int		ft_filecheck(char *fname)
 {
-	int	fd;
+	int		fd;
 	char	buffer[2];
 
 	if ((fd = open(fname, O_RDONLY)) == -1)
