@@ -6,7 +6,7 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/06 23:50:52 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/02 11:03:54 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/03/03 16:56:29 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 	if (ac == 1)
 	{
 		simple_grid = ft_stdin_to_array();
-		if (!ft_grid_control(simple_grid))
+		if (simple_grid && !ft_grid_control(simple_grid))
 		{
 			params = new_params(simple_grid);
 			grid = new_grid(params, simple_grid);
