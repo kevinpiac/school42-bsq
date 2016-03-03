@@ -6,11 +6,12 @@
 /*   By: kpiacent <kpiacent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/10 10:33:29 by kpiacent          #+#    #+#             */
-/*   Updated: 2016/03/02 21:03:30 by kpiacent         ###   ########.fr       */
+/*   Updated: 2016/03/03 15:10:42 by kpiacent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+#include <stdio.h>
 
 void	ft_try_square(int begin_x, int begin_y, t_grid *grid)
 {
@@ -18,6 +19,7 @@ void	ft_try_square(int begin_x, int begin_y, t_grid *grid)
 
 	if (!ft_is_empty_box(grid->body[begin_x][begin_y], grid->params.empty))
 	{
+//		printf("LINE LEN : %d, LINE NBR : %d\n", grid->line_len, grid->params.line_nbr);
 		grid->next_y++;
 		return ;
 	}
@@ -46,6 +48,8 @@ void	ft_find_max_square(t_grid *grid)
 	while (grid->next_x <= grid->params.line_nbr)
 	{
 		ret = ft_is_valid_begin(grid, grid->next_x, grid->next_y);
+//		printf("is valid begin : RET = %d\n", ret);
+//		printf("grid->next_x: %d, next_y: %d\n\n\n", grid->next_x, grid->next_y);
 		if (ret == -1)
 		{
 			ft_fill_grid(grid);
@@ -87,6 +91,8 @@ int		ft_is_valid_begin(t_grid *grid, int x, int y)
 	int		i;
 
 	i = 0;
+	if (x > grid->params.line_nbr - 1)
+		return (-1);
 	if (grid->params.line_nbr > 1)
 		i = 1;
 	if (grid->max_square > (grid->params.line_nbr - x - i))
